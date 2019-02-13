@@ -1,5 +1,5 @@
 # PLAsTiCC
-This repository contains the submission file and the code used in the PLAsTiCC Astronomical Classification Kaggle Competition. 
+This repository contains code used in the PLAsTiCC Astronomical Classification Kaggle Competition. 
 https://www.kaggle.com/c/PLAsTiCC-2018/overview
 
 # Background of Competition 
