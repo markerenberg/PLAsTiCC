@@ -1,4 +1,4 @@
-# PLAsTiCC
+# PLAsTiCC Astronomical CLassification Kaggle
 This repository contains code used in the PLAsTiCC Astronomical Classification Kaggle Competition. 
 https://www.kaggle.com/c/PLAsTiCC-2018/overview
 
