@@ -8,12 +8,12 @@ The Photometric LSST Astronomical Time-Series Classification Challenge (PLAsTiCC
 
 Competitors were given simulated LSST time-series data in the form of light curves. These light curves were the result of difference imaging, where two images are taken of the same region on different nights and then subtracted from each other. The objective of the competition was to classify these light curves into 15 classes, only 14 of which were represented in the training sample. The final class was meant to capture interesting objects that are hypothesized to exist but have never been observed.
 
-## Our Pipeline
+# Our Pipeline
 
-# Train Test Split
+## Train Test Split
 The training data was split using a stratified K-fold split, with a K-value of 10. This method was proven to be the most effective after comparing with other alternatives, such as grouping observations by class and performing random stratified sampling amongst the classes.
 
-# Feature Engineering
+## Feature Engineering
 The first set of features engineered were simple sums and measures of central tendency related to the flux and mjd variables (X and Y respectively). In addition to this, the tsfresh library was used to extract features related to periodicity and distribution of the light curves. 
 
 After extracting these features, an issue I faced was that that the recorded observations were not taken on a consistent time scale in the training data. This meant that I had to interpolate observations to create a regular time series, rather than an unevenly spaced one. To do this, I implemented a Gaussian Process Regression Encoder to create a fixed-length series of observations from the irregularly timed input. A Gaussian Process was chosen over Spline Interpolation and Recurrent Neural Networks due to it's ability to allow for uncertainty in the interpolated space, and due to it's run-time efficiency. 
@@ -21,11 +21,10 @@ To implement a Gaussian Process model, the celerite package was used in Python. 
 
 After obtaining a consistent time series of data, the Wavelet transform algorithm was applied to extract time and frequency information from the original signal, while reducing photometric noise from the data set. The reason the Stationary Wavelet Transform (SWT) was used instead of the Discrete Wavelet Transform (DWT) is because the DWT is not time-invariant, and is therefore sensitive to the alignment of the light curves with time.  Once the approximation and detail coefficients had been extracted, Principal Component Analysis (PCA) was run to reduce the dimensions of the input.
 
-
-# Our Model
+## Our Model
 The final model we used a stacked random forest model, implemented with XGBoost and LightGBM random forests. 
 
-# Evaluation
+## Evaluation
 Thanks to assistance from kernels and discussions, it was discovered that the leaderboard used a modified version of a multi-weighted log loss algorithm. As such, this loss function was used to evaluate the predictive accuracy of our final model. 
 
 # Final Ranking
