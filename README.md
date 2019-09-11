@@ -28,8 +28,10 @@ The final model we used a stacked random forest model, implemented with XGBoost 
 Thanks to assistance from kernels and discussions, it was discovered that the leaderboard used a modified version of a multi-weighted log loss algorithm. As such, this loss function was used to evaluate the predictive accuracy of our final model. 
 
 Below is the confusion plot of our final model using stacked XGB and LGB models. It spans across the 14 response classes present in the training set.
+
+
 ![](images/confusion_plot.jpg)
 
 # Final Ranking
-Our submission achieved a leaderboard score of 1.44812. We learned that the loss function used in the competition was a modified version of a weighted log loss function amongst all 15 classes. 
+Our submission achieved a leaderboard score of 1.44812. We learned that the loss function used in the competition was a modified version of a weighted log loss function amongst all 15 classes in the test set. 
 Our submission was ranked 628th on the leaderboard. I take this challenge as a learning opportunity, and will continue to expand on the  knowledge I have gained from this competition. I am very fortunate to have taken the time to study astronomy, photonomy, and spectroscopy, and to have been able to assemble a working model in time that accurately classified the simulated light curves.
